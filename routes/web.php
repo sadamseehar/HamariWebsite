@@ -22,5 +22,16 @@ route::get('logout',[adminController::class,"logout"]);
 
 route::group(['middleware'=>'admin_auth'],function(){
     route::get('/',[adminController::class,"dashboard"]);
+    route::get('category',[adminController::class,"category"]);
+    route::get('addCategory',[adminController::class,"addCategory"]);
+    route::post('addCategoryPost',[adminController::class,"addCategoryPost"]);
+
+    route::get('delete/{id}',[adminController::class,'deleteCategory']);
+    route::get('edit/{id}',[adminController::class,'editCategory']);
+
+
+    route::get('subCategory',[adminController::class,"subCategory"]);
+    route::get('addSubCategory',[adminController::class,"addSubCategory"]);
+    route::post('addSubCategoryPost',[adminController::class,"addSubCategoryPost"]);
     
 });
