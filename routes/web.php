@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\http\controllers\adminController;
+use App\http\controllers\proController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,5 +35,9 @@ route::group(['middleware'=>'admin_auth'],function(){
     route::get('subCategory',[adminController::class,"subCategory"]);
     route::get('addSubCategory',[adminController::class,"addSubCategory"]);
     route::post('addSubCategoryPost',[adminController::class,"addSubCategoryPost"]);
+
+    route::post('subCategoryAjax',[adminController::class,'subCategoryAjax']);
+
+    route::resource('product',proController::class);
     
 });

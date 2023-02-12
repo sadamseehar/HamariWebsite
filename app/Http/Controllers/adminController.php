@@ -88,4 +88,17 @@ class adminController extends Controller
         $sub_cat->save();
         return redirect("subCategory")->with("message","sub category added");
     }
+
+
+    function subCategoryAjax(Request $request)
+    {
+        $category =$request->post("categoryID");
+        $subcat = sub_category::where('categoryID',$category)->get();
+        
+
+        foreach($subcat as $s)
+        {
+            echo "<option>".$s->sub_category_name."</option>";
+        }
+    }
 }
